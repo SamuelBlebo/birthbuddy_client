@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { BsFillCalendarDateFill } from "react-icons/bs";
 import { RiFileList2Fill, RiAccountCircleFill } from "react-icons/ri";
 import { FaCalendarAlt } from "react-icons/fa";
@@ -8,16 +10,24 @@ export default function Menu() {
     <div className="">
       <div className="flex justify-between w-[260px] items-center">
         <div className="text-[30px]">
-          <BsFillCalendarDateFill />
+          <Link to="/">
+            <BsFillCalendarDateFill />
+          </Link>
         </div>
         <div className="text-[35px]">
-          <RiFileList2Fill />
+          <Link to="/all">
+            <RiFileList2Fill />
+          </Link>
         </div>
         <div className="text-[32px]">
-          <FaCalendarAlt />
+          <Link to="/calender">
+            <FaCalendarAlt />
+          </Link>
         </div>
         <div className="text-[40px]">
-          <RiAccountCircleFill />
+          <Link to="/Account">
+            <RiAccountCircleFill />
+          </Link>
         </div>
       </div>
     </div>
