@@ -59,18 +59,34 @@ export default function All() {
         <Menu />
       </div>
 
-      <div className="h-[400px] overflow-y-auto no-scrollbar ">
-        {" "}
-        {/* Set a fixed height and add overflow-y */}
+      <div className="h-[420px] overflow-y-auto no-scrollbar ">
         <ul>
-          {dates.map((date) => (
-            <div key={date.id} className="bg-[#fff] mt-[20px] p-[20px] rounded">
-              <li>{date.name}</li>
-              <li>{formatDate(date.event_date)}</li>
-              <li>{date.event_type}</li>
-              <li>{date.mobile_number}</li>
-            </div>
-          ))}
+          {dates
+            .sort((a, b) => new Date(a.event_date) - new Date(b.event_date)) // Sort the array based on the date
+            .map((date) => (
+              <div
+                key={date.id}
+                className="bg-[#fff] mt-[20px] p-[20px] rounded-[10px] flex justify-between"
+              >
+                {/* Name&Date */}
+                <div className="e">
+                  <li className="font-bold">{date.name}</li>
+                  <li className="text-[#9c9c9c]">
+                    {formatDate(date.event_date)}
+                  </li>
+                </div>
+
+                {/* Event type and button */}
+                <div>
+                  <li className="text-[#9c9c9c]">{date.event_type}</li>
+                  <a href={`tel:{date.mobile_number}`}>
+                    <button className="bg-[#2CBA8D] px-[10px] rounded-[5px] font-bold">
+                      Call
+                    </button>
+                  </a>
+                </div>
+              </div>
+            ))}
         </ul>
       </div>
     </div>
