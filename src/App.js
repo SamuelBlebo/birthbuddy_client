@@ -10,7 +10,7 @@ import Account from "./Components/Account";
 function App() {
   return (
     <Router>
-      <div className="App flex items-center justify-center h-[100vh]">
+      <div className="App flex items-center justify-center h-[90vh]">
         <Routes>
           <Route exact path="/" element={<Index />} />
           <Route path="/all" element={<All />} />
