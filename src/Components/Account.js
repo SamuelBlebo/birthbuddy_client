@@ -3,7 +3,7 @@ import Menu from "../Components/Menu";
 
 export default function All() {
   return (
-    <div className="h-[700px] w-[380px] bg-[#D9D9D9] rounded-[18px] px-[35px] py-[50px] relative">
+    <div className="h-[700px] w-[380px] bg-[#D9D9D9] rounded-[18px] px-[35px] pt-[30px] pb-[50px] relative">
       {/* text and add new */}
       <div className="text-and-add flex flex-row justify-between items-end">
         <div>
@@ -20,7 +20,7 @@ export default function All() {
       </div>
 
       {/* Heading and List */}
-      <div className="mt-[40px]">
+      <div className="mt-[20px]">
         <div>
           <h1 className="font-[700] text-[40px]">Account</h1>
         </div>

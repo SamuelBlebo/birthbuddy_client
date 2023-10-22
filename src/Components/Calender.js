@@ -20,7 +20,7 @@ export default function All() {
       </div>
 
       {/* Heading and List */}
-      <div className="mt-[40px]">
+      <div className="mt-[30px]">
         <div>
           <h1 className="font-[700] text-[40px]">Calender</h1>
         </div>

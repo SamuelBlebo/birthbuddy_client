@@ -33,7 +33,7 @@ export default function All() {
   }, []);
 
   return (
-    <div className="h-[700px] w-[380px] bg-[#D9D9D9] rounded-[18px] px-[35px] py-[50px] relative">
+    <div className="h-[700px] w-[380px] bg-[#D9D9D9] rounded-[18px] px-[35px] pt-[30px] pb-[70px] relative">
       {/* text and add new */}
       <div className="text-and-add flex flex-row justify-between items-end">
         <div>
@@ -50,44 +50,50 @@ export default function All() {
       </div>
 
       {/* Heading and List */}
-      <div className="mt-[40px]">
+      <div className="mt-[20px]">
         <div>
           <h1 className="font-[700] text-[40px]">All</h1>
         </div>
       </div>
-      <div className="absolute bottom-0 mb-[20px] mx-[6%]">
-        <Menu />
-      </div>
 
-      <div className="h-[420px] overflow-y-auto no-scrollbar ">
+      <div className="h-[460px] overflow-y-auto no-scrollbar ">
         <ul>
           {dates
             .sort((a, b) => new Date(a.event_date) - new Date(b.event_date)) // Sort the array based on the date
             .map((date) => (
               <div
                 key={date.id}
-                className="bg-[#fff] mt-[20px] p-[20px] rounded-[10px] flex justify-between"
+                className="bg-[#fff] mt-[20px] p-[18px] rounded-[10px] flex justify-between"
               >
                 {/* Name&Date */}
                 <div className="e">
-                  <li className="font-bold">{date.name}</li>
+                  <li className="font-bold mb-[5px]">{date.name}</li>
                   <li className="text-[#9c9c9c]">
                     {formatDate(date.event_date)}
                   </li>
                 </div>
 
                 {/* Event type and button */}
-                <div>
-                  <li className="text-[#9c9c9c]">{date.event_type}</li>
-                  <a href={`tel:{date.mobile_number}`}>
-                    <button className="bg-[#2CBA8D] px-[10px] rounded-[5px] font-bold">
+                <div className="text-right">
+                  <li className="text-[#9c9c9c] mb-[5px]">{date.event_type}</li>
+                  <a href={`tel:${date.mobile_number}`}>
+                    <button className="bg-[#2CBA8D] px-[10px] rounded-[5px] font-bold mr-[5px] text-[14px]">
                       Call
+                    </button>
+                  </a>
+                  <a href={`sms:${date.mobile_number}`}>
+                    <button className="bg-[#2CBA8D] px-[10px] rounded-[5px] font-bold text-[14px]">
+                      Msg
                     </button>
                   </a>
                 </div>
               </div>
             ))}
         </ul>
+      </div>
+
+      <div className="absolute bottom-0 mb-[20px] mx-[6%]">
+        <Menu />
       </div>
     </div>
   );
