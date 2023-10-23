@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Menu from "../Components/Menu";
 
 export default function All() {
@@ -13,9 +14,11 @@ export default function All() {
           <p className="text-[14px]">Save dates and wish loved ones.</p>
         </div>
         <div>
-          <button className="bg-[#2CBA8D] px-[6px] py-[3px] text-[14px] font-bold rounded-[5px]">
-            + Add New
-          </button>
+          <Link to="/add">
+            <button className="bg-[#2CBA8D] px-[6px] py-[3px] text-[14px] font-bold rounded-[5px]">
+              + Add New
+            </button>
+          </Link>
         </div>
       </div>
 

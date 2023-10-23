@@ -6,6 +6,7 @@ import Index from "./Components/Index";
 import All from "./Components/All";
 import Calender from "./Components/Calender";
 import Account from "./Components/Account";
+import AddNew from "./Components/AddNew";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/all" element={<All />} />
           <Route path="/Calender" element={<Calender />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/add" element={<AddNew />} />
         </Routes>
       </div>
     </Router>
