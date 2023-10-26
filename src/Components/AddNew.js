@@ -82,40 +82,64 @@ export default function AddNew() {
         </div>
       </div>
 
-      <div>
-        <form onSubmit={onSubmitForm}>
-          <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="date"
-            placeholder="Date"
-            value={event_date}
-            onChange={(e) => setEvent_date(e.target.value)}
-          />
-          <select
-            value={event_type}
-            onChange={(e) => setEvent_type(e.target.value)}
-          >
-            <option value="" disabled>
-              Select Event Type
-            </option>
-            {event_types.map((type, index) => (
-              <option key={index} value={type}>
-                {type}
+      <div className="mt-[50px] ">
+        <form onSubmit={onSubmitForm} className="flex flex-col items-center">
+          <div>
+            <h4 className="pl-[10px] text-[#5c5c5c]">Date</h4>
+            <input
+              className="mb-[20px] h-[50px] w-[310px] p-[20px] rounded-[8px]"
+              type="date"
+              placeholder="Date"
+              value={event_date}
+              onChange={(e) => setEvent_date(e.target.value)}
+            />
+          </div>
+          <div>
+            <h4 className="pl-[10px] text-[#5c5c5c]">Name</h4>
+
+            <input
+              className="mb-[20px] h-[50px] w-[310px] p-[20px] rounded-[8px]"
+              type="text"
+              placeholder="eg. John Doe "
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <h4 className="pl-[10px] text-[#5c5c5c]">Event Type</h4>
+            <select
+              className="mb-[20px] h-[50px] w-[310px] px-[20px] rounded-[8px]"
+              value={event_type}
+              onChange={(e) => setEvent_type(e.target.value)}
+            >
+              <option value="" disabled>
+                <p className="text-[#bcbcbc]"> Click to select event type</p>
               </option>
-            ))}
-          </select>
-          <input
-            type="number"
-            placeholder="Mobile Number"
-            value={mobile_number}
-            onChange={(e) => setMobile_number(e.target.value)}
-          />
-          <button type="submit">Submit</button>
+              {event_types.map((type, index) => (
+                <option key={index} value={type}>
+                  {type}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <h4 className="pl-[10px] text-[#5c5c5c]">Mobile Number</h4>
+            <input
+              className="mb-[20px] h-[50px] w-[310px] p-[20px] rounded-[8px]"
+              type="tel"
+              placeholder="eg. +233 000000000"
+              value={mobile_number}
+              onChange={(e) => setMobile_number(e.target.value)}
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-[#2CBA8D] w-[120px] h-[40px] rounded-[8px]"
+          >
+            Add Date
+          </button>
         </form>
       </div>
 
