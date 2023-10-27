@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Menu from "../Components/Menu";
 
-export default function All() {
+import Calendar from "react-calendar";
+
+export default function Calender() {
+  const [value, onChange] = useState(new Date());
+
   return (
     <div className="h-[700px] w-[380px] bg-[#D9D9D9] rounded-[18px] px-[35px] py-[50px] relative">
       {/* text and add new */}
@@ -28,6 +32,10 @@ export default function All() {
           <h1 className="font-[700] text-[40px]">Calender</h1>
         </div>
       </div>
+      <div className="bg-[#fff]">
+        <Calendar onChange={onChange} value={value} />
+      </div>
+
       <div className="absolute bottom-0 mb-[20px] mx-[6%]">
         <Menu />
       </div>
