@@ -2,29 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 body {
   margin: 0;
-  font-family: 'Lato', sans-serif;
-
-
+  font-family: "Lato", sans-serif;
 }
 
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-    
-  }
-  
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
 select {
   appearance: none;
@@ -35,8 +29,13 @@ select {
   cursor: pointer; /* Add a cursor to indicate interactivity */
 }
 
-
 select:invalid,
 select option[value=""] {
   color: #999999;
+}
+
+.highlighted-date {
+  background-color: #2cba8d !important;
+  color: black !important;
+  font-weight: bold !important;
 }

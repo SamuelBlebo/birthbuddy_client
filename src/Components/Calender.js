@@ -1,11 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Calendar from "react-calendar";
+import axios from "axios";
+
+import "react-calendar/dist/Calendar.css";
+
+// components
 import Menu from "../Components/Menu";
 
-import Calendar from "react-calendar";
-
 export default function Calender() {
-  const [value, onChange] = useState(new Date());
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    // Make an API request to fetch events from the server
+    axios
+      .get("https://birthbuddy-server.vercel.app/dates")
+      .then((response) => {
+        setEvents(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching events:", error);
+      });
+  }, []);
+
+  const currentDate = new Date();
 
   return (
     <div className="h-[700px] w-[380px] bg-[#D9D9D9] rounded-[18px] px-[35px] py-[50px] relative">
@@ -32,13 +50,34 @@ export default function Calender() {
           <h1 className="font-[700] text-[40px]">Calender</h1>
         </div>
       </div>
-      <div className="bg-[#fff]">
-        <Calendar onChange={onChange} value={value} />
-      </div>
+      <Calendar
+        value={currentDate} // Set the current date for the calendar
+        tileClassName={({ date }) => {
+          // Add a custom CSS class to highlight the date cell if true
+          const eventForDate = events.find(
+            (event) => event.event_date === date.toISOString()
+          );
+
+          if (eventForDate && !isSameDay(currentDate, date)) {
+            return "highlighted-date";
+          }
+
+          return null;
+        }}
+      />
 
       <div className="absolute bottom-0 mb-[20px] mx-[6%]">
         <Menu />
       </div>
     </div>
+  );
+}
+
+// Function to check if two dates are the same day
+function isSameDay(date1, date2) {
+  return (
+    date1.getDate() === date2.getDate() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getFullYear() === date2.getFullYear()
   );
 }
